@@ -51,10 +51,35 @@ public class ArticleController { // 여기는 mustache등을 맵핑해주는 파
         }
     }
 
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Optional<Article> optionalArticle = articleRepository.findById(id);
+        if (!optionalArticle.isEmpty()) {
+            model.addAttribute("article", optionalArticle.get());
+            return "articles/edit";
+        } else {
+            model.addAttribute("message", String.format("%d가 없습니다.", id));
+            return "articles/error";
+        }
+    }
+
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
+        log.info("title:{} content:{}", articleDto.getTitle(), articleDto.getContent());
+        Article article = articleRepository.save(articleDto.toEntity());
+        model.addAttribute("article", article);
+        return String.format("redirect:/articles/%d", article.getId());
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        articleRepository.deleteById(id);
+        return "redirect:/articles";
+    }
+
     @PostMapping("") // articles로 호출을 하면 인서트하는 부분
     public String createArticle(ArticleDto articleDto) { //Dto란 데이터 전송을 하는것
         Article savedArticle = articleRepository.save(articleDto.toEntity());
         return String.format("redirect:/articles/%d", savedArticle.getId());
-
     }
 }
