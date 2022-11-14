@@ -1,0 +1,26 @@
+{{>layouts/header}}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#hospitals}}
+        <tr>
+            <th>{{id}}</th>
+            <td>{{hospitalName}}</a></td>
+            <td>{{road_name_address}}</td>
+        </tr>
+    {{/hospitals}}
+    </tbody>
+</table>
+<div class="d-flex justify-content-center">
+    <ul class="list-group list-group-horizontal">
+        <a href="?page={{previous}}" class="list-group-item list-group-item-secondary">Previous</a>
+        <a href="?page={{next}}" class="list-group-item list-group-item-primary">Next</a>
+    </ul>
+</div>
+{{>layouts/footer}}

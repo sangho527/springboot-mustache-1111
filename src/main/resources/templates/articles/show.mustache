@@ -21,5 +21,37 @@
 <a href="/articles/new" class="btn btn-success">new Article</a>
 <a href="/articles/{{id}}/edit" class="btn btn-primary">Edit</a>
 <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
-
+<br>
+<hr>
+<h5>Comment</h5>
+<form action="/articles/comment/post" method="post">
+    <div class="input-group">
+        <span class="input-group-text">내용 및 작성자</span>
+        <input type="hidden" name="articleId" value={{article.id}}>
+        <input type="text" name="commentContent" class="form-control">
+        <input type="text" name="user" class="form-control">
+        <button class="btn btn-secondary">댓글작성</button>
+    </div>
+</form>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Comment</th>
+            <th scope="col">User</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        {{# comments}}
+            <tr>
+                <td>{{commentContent}}</a></td>
+                <td>{{user}}</td>
+            </tr>
+        {{/comments}}
+        </tbody>
+    </table>
+    {{^ commments}}
+        입력 해주세요.
+    {{/commments}}
+</div>
 {{>layouts/footer}}

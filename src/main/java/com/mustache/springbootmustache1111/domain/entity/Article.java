@@ -4,6 +4,8 @@ package com.mustache.springbootmustache1111.domain.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 
@@ -12,6 +14,7 @@ import javax.persistence.*;
 @Table(name = "article3")
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // ID 생성을 DB에 맡김
