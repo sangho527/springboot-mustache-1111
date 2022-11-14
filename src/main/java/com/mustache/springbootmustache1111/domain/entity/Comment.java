@@ -12,13 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Review {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="hospital_id")
-    private Integer hospitalId;
+    @Column(name="article_id")
+    private Long articleId;
     private String commentContent;
     private String userName;
 }
