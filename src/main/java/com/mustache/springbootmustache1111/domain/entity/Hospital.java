@@ -1,5 +1,6 @@
 package com.mustache.springbootmustache1111.domain.entity;
 
+import com.mustache.springbootmustache1111.domain.dto.HospitalResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,4 +32,10 @@ public class Hospital {
     private Float totalAreaSize;
 
 
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(), hospital.getRoadNameAddress(),
+                hospital.getHospitalName(), hospital.getPatientRoomCount(),
+                hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
+    }
 }
