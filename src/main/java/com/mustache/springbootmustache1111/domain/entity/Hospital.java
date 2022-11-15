@@ -30,6 +30,8 @@ public class Hospital {
     private Integer totalNumberOfBeds;
     private String businessTypeName;
     private Float totalAreaSize;
+    private Integer businessStatusCode;
+    private String businessStatusName;
 
 
     public static HospitalResponse of(Hospital hospital) {
@@ -38,4 +40,5 @@ public class Hospital {
                 hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),
                 hospital.getTotalAreaSize());
     }
+
 }
