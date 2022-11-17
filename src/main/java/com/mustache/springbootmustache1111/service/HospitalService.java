@@ -1,6 +1,5 @@
 package com.mustache.springbootmustache1111.service;
 
-
 import com.mustache.springbootmustache1111.domain.dto.HospitalResponse;
 import com.mustache.springbootmustache1111.domain.entity.Hospital;
 import com.mustache.springbootmustache1111.repository.HospitalRepository;
@@ -10,13 +9,11 @@ import java.util.Optional;
 
 @Service
 public class HospitalService {
-
     private final HospitalRepository hospitalRepository;
 
     public HospitalService(HospitalRepository hospitalRepository) {
         this.hospitalRepository = hospitalRepository;
     }
-
 
     public HospitalResponse getHospital(Integer id) {
         Optional<Hospital> optHospital = hospitalRepository.findById(id); // Entity
@@ -32,4 +29,3 @@ public class HospitalService {
         return hospitalResponse;
     }
 }
-
