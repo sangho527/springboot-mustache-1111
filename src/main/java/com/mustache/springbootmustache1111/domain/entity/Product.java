@@ -3,24 +3,22 @@ package com.mustache.springbootmustache1111.domain.entity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-    @Entity
-    @Table(name = "product") // 생략 가능
-    public class Product {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private  Long Number;
+@Entity
+@Table(name = "product") //생략가능
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long number;
 
-        @Column(nullable = false) // Not null
-        private  String name;
+    @Column(nullable = false) //not null
+    private String name;
 
-        @Column(nullable = false)
-        private  Integer price;
+    @Column(nullable = false)
+    private Integer price;
 
-        @Column(nullable = false)
-        private  Integer stock;
+    @Column(nullable = false)
+    private Integer Stock;
 
-        private LocalDateTime createdAT;
-        private LocalDateTime updatedAT;
-
-
-    }
+    private LocalDateTime createAt;
+    private LocalDateTime updatedAt;
+}
