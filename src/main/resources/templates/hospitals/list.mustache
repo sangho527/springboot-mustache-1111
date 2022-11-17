@@ -1,0 +1,23 @@
+{{>layouts/header}}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#hospitals}}
+        <th scope="row">{{id}}</th>
+        <td><a href="/api/v1/hospitals/{{id}}">{{hospitalName}}</a></td>
+        <td>{{roadNameAddress}}</td>
+        </tr>
+    {{/hospitals}}
+    </tbody>
+</table>
+<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+    <a href="?page={{previous}}" type="button" class="btn btn-outline-dark">Previous</a>
+    <a href="?page={{next}}" type="button" class="btn btn-outline-dark">Next</a>
+</div>
+{{>layouts/footer}}
