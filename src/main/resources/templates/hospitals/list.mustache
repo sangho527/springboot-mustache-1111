@@ -1,4 +1,11 @@
 {{>layouts/header}}
+<form class="container" action="/hospitals" method="post">
+    <div class="mb-3">
+        <label class="form-label">도로명 주소 검색</label>
+        <input type="text" class="form-control" name="keyword" placeholder="도로명 주소를 검색하세요. ">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 <table class="table table-striped">
     <thead>
     <tr>
