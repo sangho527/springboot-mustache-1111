@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -24,9 +24,16 @@ public class HospitalController {
 
 
     @GetMapping("")
-    public String hospitalList(Model model, Pageable pageable) {
-        Page<Hospital> hospitals = hospitalRepository.findAll(pageable);
-        log.info("size:{}", hospitals.getSize());
+    public String hospitalList(@RequestParam(required = false) String keyword, Model model, Pageable pageable) {
+        log.info(keyword);
+        Page<Hospital> hospitals;
+
+        if (keyword != null) {
+            hospitals = hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
+        }else {
+            hospitals = hospitalRepository.findAll(pageable);
+        }
+
         model.addAttribute("hospitals", hospitals);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
