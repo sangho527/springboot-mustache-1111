@@ -29,7 +29,7 @@ public class ArticleController {
         return "articles/new";
     }
 
-    @GetMapping("") // index : 게시판 메인화면
+    @GetMapping("") // index, 게시판 메인화면
     public String index() {
         return "redirect:/articles/list";
     }
