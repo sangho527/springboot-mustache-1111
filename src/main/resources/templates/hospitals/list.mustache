@@ -1,11 +1,13 @@
 {{>layouts/header}}
-<form class="container" action="/hospitals" method="post">
+<br>
+<form class="container" action="/hospitals" method="get">
     <div class="mb-3">
         <label class="form-label">도로명 주소 검색</label>
-        <input type="text" class="form-control" name="keyword" placeholder="도로명 주소를 검색하세요. ">
+        <input type="text" class="form-control" name="keyword" placeholder="도로명 주소를 검색하세요. ex) 경기도 용인시">
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+    <button type="submit" class="btn btn-primary">검색</button>
 </form>
+<br>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -23,8 +25,8 @@
     {{/hospitals}}
     </tbody>
 </table>
-<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-    <a href="?page={{previous}}" type="button" class="btn btn-outline-dark">Previous</a>
-    <a href="?page={{next}}" type="button" class="btn btn-outline-dark">Next</a>
+<div class="btn-group btn-group-sm" role="group" aria-label="Basic button group">
+    <a href="?page={{previous}}" type="button" class="btn btn-outline-primary">Previous</a>
+    <a href="?page={{next}}" type="button" class="btn btn-outline-primary">Next</a>
 </div>
 {{>layouts/footer}}
